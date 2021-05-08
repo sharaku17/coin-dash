@@ -14,3 +14,176 @@ a {
 * {
   box-sizing: border-box;
 }
+
+#Window {
+  animation: fadeInUp 1s ease-in;
+}
+
+#Vector_2 {
+  animation: changeColor 10s 2s infinite alternate, translatewindowsmall 20s 5s infinite alternate ease-in-out;
+}
+
+#Vector {
+  animation: changeColorBack 10s 6s infinite alternate, translatewindowBig 20s 5s infinite alternate ease-in-out;
+}
+
+#Vector_3 {
+  animation: changeColorBack 10s 10s infinite alternate,translatewindowsmall 20s 5s infinite alternate ease-in-out;
+}
+
+#Vector_4 {
+  animation: changeColorBack 10s 14s infinite alternate, translatewindowsmall 20s 5s infinite alternate ease-in-out;
+}
+
+
+@keyframes translatewindowsmall {
+  0% {
+    transform: translateX(0);
+  }
+  10%{
+    transform: translateX(15%);
+  }
+  50%{
+    transform: translateX(15%);
+
+  }
+  60%{
+    transform: translateX(0);
+
+  }
+  100%{
+    transform: translateX(0);
+
+  }
+}
+
+@keyframes translatewindowBig {
+  0% {
+    transform: translateX(0);
+  }
+  10%{
+    transform: translateX(-25%);
+  }
+  50%{
+    transform: translateX(-25%);
+
+  }
+  60%{
+    transform: translateX(0);
+
+  }
+  100%{
+    transform: translateX(0);
+
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes changeColor {
+  0% {
+    fill: #6C63FF;
+  }
+  50% {
+    fill: #F2F2F2;
+  }
+  100% {
+    fill: #F2F2F2;
+
+  }
+}
+
+@keyframes changeColorBack {
+  0% {
+    fill:#F2F2F2;
+  }
+  50% {
+    fill: #6C63FF;
+  }
+  100% {
+    fill: #6C63FF;
+
+  }
+}
+
+#righthand {
+  animation: typing2 1s 2s infinite alternate;
+  transform-origin: left;
+  transform-box: fill-box;
+
+}
+
+#lefthand {
+  animation: typing 1s 3s infinite alternate;
+
+
+}
+
+@keyframes typing {
+  from {
+    transform: translateX(0);
+  }
+  
+  to {
+    transform: translateX(1%);
+
+  }
+}
+
+@keyframes typing2 {
+  from {
+    transform: rotate(0);
+  }
+  
+  to {
+    transform: rotate(-10deg);
+
+  }
+}
+
+#leaf1,#leaf2 {
+  fill: #6C63FF;
+}
+
+#body {
+  animation: leanForward 4s 2s infinite alternate;
+  transform-origin: bottom;
+  transform-box: fill-box;
+}
+
+#head {
+  animation: leanForwardHead 8s 2s infinite alternate;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes leanForward {
+  from {
+    transform: rotate(0);
+  }
+  
+  to {
+    transform: rotate(10deg);
+
+  }
+}
+
+@keyframes leanForwardHead {
+  from {
+    transform: rotate(0);
+  }
+  
+  to {
+    transform: rotate(15deg);
+
+  }
+}
