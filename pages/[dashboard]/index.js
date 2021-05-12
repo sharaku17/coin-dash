@@ -1,7 +1,7 @@
 import {useState,useEffect} from 'react';
 import {useSession} from 'next-auth/client';
-import HeroData from '../../components/HeroData'
-
+import Dashboard_Layout from '../../components/layouts/Dashboard_Layout'
+import List from '../../components/List'
 
 
 
@@ -37,9 +37,13 @@ export default function Dashboard(){
             return (
 
                 //Build Dashboard view here 
-                <HeroData toggle={toggle}  visible={showNav} user={session.user}>
-
-                </HeroData>
+                <Dashboard_Layout toggle={toggle}  visible={showNav} user={session.user}>
+                    <div className='m-auto'>
+                    <List  className=' '></List>
+                  
+                    </div>
+        
+                </Dashboard_Layout>
             )
 
         }
