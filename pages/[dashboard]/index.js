@@ -1,9 +1,15 @@
 import {useState,useEffect} from 'react';
 import {useSession} from 'next-auth/client';
+import HeroData from '../../components/HeroData'
+
+
+
 
 export default function Dashboard(){
-    const[session,loading] = useSession();
-    const[content,setContent] = useState();
+    const [session,loading] = useSession();
+    const [content,setContent] = useState();
+    const [showNav, setShowNav] = useState(true);
+    const toggle = () => setShowNav(!showNav)
 
     useEffect(() => {
         const fetchData = async() => {
@@ -31,12 +37,9 @@ export default function Dashboard(){
             return (
 
                 //Build Dashboard view here 
-                <div>
-                    <h1>
-                        Hello {session.user.name},
-                        this is your Dashboard.
-                    </h1>
-                </div>
+                <HeroData toggle={toggle}  visible={showNav} user={session.user}>
+
+                </HeroData>
             )
 
         }

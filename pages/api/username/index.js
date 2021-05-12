@@ -1,7 +1,9 @@
 import {getSession, session} from 'next-auth/client';
-import { PrismaClient } from '@prisma/client';
+import prisma from '../../../client'
+//import { PrismaClient } from '@prisma/client';
 
-const prisma = new PrismaClient();
+//const prisma = new PrismaClient();
+console.log(prisma)
 
 export default async (req ,res) => {
     if (req.method !== 'POST'){
