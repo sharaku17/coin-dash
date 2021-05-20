@@ -2,10 +2,12 @@ import {useState,useEffect} from 'react';
 import {useSession} from 'next-auth/client';
 import Dashboard_Layout from '../../components/layouts/Dashboard_Layout'
 import List from '../../components/List'
+import Sparkline from '../../components/Sparkline'
 
 
 
-export default function Dashboard(){
+
+export default function Dashboard({coins_markCap_Desc}){
     const [session,loading] = useSession();
     const [content,setContent] = useState();
     const [showNav, setShowNav] = useState(true);
@@ -38,8 +40,8 @@ export default function Dashboard(){
 
                 //Build Dashboard view here 
                 <Dashboard_Layout toggle={toggle}  visible={showNav} user={session.user}>
-                    <div className='m-auto'>
-                    <List  className=' '></List>
+                    <div className=' m-auto'>
+                   
                   
                     </div>
         
@@ -47,4 +49,18 @@ export default function Dashboard(){
             )
 
         }
+}
+
+export async function getServerSideProps(context) {
+    const res = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=20&page=1&sparkline=true')
+
+    const coins_markCap_Desc = await res.json()
+
+    return {
+        props: {
+            coins_markCap_Desc
+        }
+    }
+
+
 }

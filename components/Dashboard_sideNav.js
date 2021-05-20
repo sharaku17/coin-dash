@@ -3,8 +3,9 @@ import Row from './SideNavRow'
 
 const Dashboard_sideNav = ({visible, toggle}) => {
     return (
-        <aside className={visible ? " bg-white w-60 flex-shrink-0 -ml-40  shadow-md transform  transition-all duration-2 ease-in-out  " : " bg-white w-60  shadow-md transition-all duration-2 ease-in-out  "} >
-            <div onClick={toggle} className='flex cursor-pointer justify-end mr-5 mt-4 '>
+        <div className={visible ? "w-20 "  : "w-60"}> 
+        <div className={visible ? " block bg-white w-60 h-screen flex-shrink-0 -translate-x-2/3 -mr-40  shadow-md transform fixed transition-all duration-3 ease-in-out  " : " translate-x-0 h-screen fixed  bg-white w-60  shadow-md transition-all duration-3 ease-in-out  "} >
+            <div onClick={toggle} className='flex cursor-pointer justify-end mr-5 mt-20 '>
 
             <div className={!visible ? 'c-hamburger mr-2 c-hamburger--arrow active' : 'c-hamburger mr-2 c-hamburger--arrow  '}>
             <div className="c-hamburger-inner ">
@@ -18,7 +19,7 @@ const Dashboard_sideNav = ({visible, toggle}) => {
                className='h-20  justify.center  items-center'>
 
     
-                   <div className='font-semibold   text-3xl mt-10 '>
+                   <div className='font-semibold   text-3xl ml-10 mt-10 '>
                        <span className='text-indigo-500 font-bold text-4xl'>C</span>oin-<span className='text-indigo-500 font-bold text-4xl'>D</span>ash
                    </div>
                </div>
@@ -49,7 +50,8 @@ const Dashboard_sideNav = ({visible, toggle}) => {
                         </Row>
                     </ul>
                 </nav>
-            </aside>
+            </div>
+        </div>
     )
 }
 

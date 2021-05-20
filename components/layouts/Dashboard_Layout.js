@@ -7,16 +7,32 @@ import  Dashboard_sideNav from '../Dashboard_sideNav'
  const Dashboard_Layout = ({children, user,visible,toggle}) => {
     return (
         <>
+        
+        <div className='flex-col h-screen bg-gray-100 overflow-hidden text-center  justify-between'>
+        <div className='flex-1 flex '>
         <Dashboard_nav user={user} >
         </Dashboard_nav>
-
+        </div>
+        <div className='flex' >
         
-        <div className='flex min-h-screen min-w-screen bg-gray-100  text-center  justify-between'>
-        <Dashboard_sideNav  visible={visible} toggle={toggle} >
+        
+        <Dashboard_sideNav   visible={visible} toggle={toggle} >
 
         </Dashboard_sideNav>
         
+        
+        
+       
+        <div className='flex-1 overflow-y-auto flex'>
         {children}
+
+        </div>
+        </div>
+
+        
+
+       
+     
         </div>
 
        
