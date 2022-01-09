@@ -2,6 +2,7 @@ import React from 'react'
 import {Line} from 'react-chartjs-2'
 
 const Sparkline = ({sparkline}) => {
+
     
     const options = {
         legend: {
@@ -23,8 +24,9 @@ const Sparkline = ({sparkline}) => {
                     pointBackgroundColor: '#fff',
                     pointBorderWidth: 1,
                     pointHoverRadius: 5,
-                    pointRadius: 1,
-                    pointHitRadius: 10,
+                    lineBorderWidth:1,
+                    pointRadius: 0,
+                    pointHitRadius: 0,
                     data: sparkline.price
                 }
             ]
@@ -41,9 +43,10 @@ const Sparkline = ({sparkline}) => {
                     pointBackgroundColor: '#fff',
                     pointBorderWidth: 1,
                     pointHoverRadius: 5,
+                    lineBorderWidth:1,
                     
-                    pointRadius: 1,
-                    pointHitRadius: 10,
+                    pointRadius: 0,
+                    pointHitRadius: 0,
                     data: sparkline.price
                 }
             ]
@@ -51,8 +54,17 @@ const Sparkline = ({sparkline}) => {
  
   
     return (
-        <div>
+        <div className="  ">
             <Line data={sparkline.price[0] < sparkline.price[sparkline.price.length -1 ] ? data_green:data_red}  options={{
+                responsive: false,
+                elements: {
+                    point: {
+                        radius:0
+                    }
+                },
+                tooltips:{
+                    enabled: false
+                },
                 animation: {
                     duration: 0
                 },
@@ -67,7 +79,7 @@ const Sparkline = ({sparkline}) => {
                 ,maintainAspectRatio:false,plugins:{
             legend: {
     display: false
-  }}}} width={300} height={100} >
+  }}}} width={100} height={50} >
             
 
             </Line>

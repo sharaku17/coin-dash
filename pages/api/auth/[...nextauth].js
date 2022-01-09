@@ -7,7 +7,6 @@ import prisma from '../../../client'
 
 //const prisma = new PrismaClient();
 
-
 const autoHandler = (req , res) => NextAuth(req,res,{
     providers: [
         Providers.Email({
@@ -24,7 +23,11 @@ const autoHandler = (req , res) => NextAuth(req,res,{
         Providers.GitHub({
             clientId: process.env.GITHUB_ID,
             clientSecret: process.env.GITHUB_SECRET
-          })
+          }),
+        Providers.Google({
+            clientId: process.env.GOOGLE_CLIENT_ID,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        })
     ],
 
     adapter: Adapters.Prisma.Adapter({prisma}),

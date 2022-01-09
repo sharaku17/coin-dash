@@ -10,12 +10,14 @@
   "dependencies": {
     "@prisma/client": "^2.22.0",
     "chart.js": "^3.2.1",
+    "lightweight-charts": "^3.7.0",
     "next": "10.2.0",
     "next-auth": "^3.19.8",
     "react": "17.0.2",
     "react-chartjs-2": "^3.0.3",
     "react-chartjs-3": "^2.7.7",
     "react-dom": "17.0.2",
+    "swr": "^1.0.1",
     "tailwindcss-delicious-hamburgers": "^1.0.2"
   },
   "devDependencies": {

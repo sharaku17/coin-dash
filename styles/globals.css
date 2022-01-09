@@ -19,6 +19,27 @@ a {
   animation: fadeInUp 1s ease-in;
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
 #Vector_2 {
   animation: changeColor 10s 2s infinite alternate, translatewindowsmall 20s 5s infinite alternate ease-in-out;
 }
@@ -153,6 +174,7 @@ a {
 #leaf1,#leaf2 {
   fill: #6C63FF;
 }
+
 
 #body {
   animation: leanForward 4s 2s infinite alternate;

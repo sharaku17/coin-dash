@@ -8,26 +8,36 @@ import  Dashboard_sideNav from '../Dashboard_sideNav'
     return (
         <>
         
-        <div className='flex-col h-screen bg-gray-100 overflow-hidden text-center  justify-between'>
-        <div className='flex-1 flex '>
-        <Dashboard_nav user={user} >
-        </Dashboard_nav>
-        </div>
-        <div className='flex' >
+        <div className='relative flex h-screen w-screen h-full bg-gray-100'>
+        
+        <aside className='fixed left-0 z-40 flex-col invisible md:visible   flex-shrink-0 h-full overflow-hidden transition-all ' >
         
         
-        <Dashboard_sideNav   visible={visible} toggle={toggle} >
+        <Dashboard_sideNav className=""  visible={visible} toggle={toggle} >
 
         </Dashboard_sideNav>
+        </aside>
+        <div className= 'fixed top-0 z-40  md:hidden    transition-all ' >
         
         
-        
-       
-        <div className='flex-1 overflow-y-auto flex'>
+        <Dashboard_nav visible={visible} toggle={toggle}></Dashboard_nav>
+        </div>
+
+
+
+        <div className=" h-full w-full max-h-full pt-20 md:ml-24  md:pr-12  overflow-y-scroll">
         {children}
 
+       
+        {/* <div className=' sticky top-0 flex items-center  w-full h-full max-w-14 z-10'>
+        <Dashboard_nav user={user} >
+        </Dashboard_nav>
+        </div> */}
+        
+       
+        
         </div>
-        </div>
+        
 
         
 

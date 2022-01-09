@@ -3,16 +3,17 @@ import Sparkline from './Sparkline'
 
 const List = ({coins_markCap_Desc}) => {
     let rank = 0
+    console.log(coins_markCap_Desc.sparkline_in_7d)
     return (
 
-        <div class="flex flex-col px-50 w-xl ">
+        <div class="flex flex-col  mx-auto w-2/3 ">
             
-            <div class="-my-2  overflow-x-hidden sm:-mx-6 lg:-mx-8">
+            <div class="-my-2  overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                 <div class="shadow overflow-hidden mt-10 border-b border-gray-200 sm:rounded-lg">
-                    <table class="min-w-full divide-y  divide-gray-200">
+                    <table class="min-w-full divide-y table-auto  divide-gray-200">
                     <thead class="bg-gray-50">
-                        <tr>
+                        <tr class="">
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Rank 
                         </th>
@@ -40,7 +41,7 @@ const List = ({coins_markCap_Desc}) => {
                     <tbody class="bg-white divide-y divide-gray-200">
 
 
-        {coins_markCap_Desc.map(coin => {
+        {coins_markCap_Desc.slice(0,15).map(coin => {
             rank = rank + 1
                 return(
                     <tr>

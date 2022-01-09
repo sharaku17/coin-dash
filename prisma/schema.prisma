@@ -51,6 +51,7 @@ model User {
   createdAt     DateTime  @default(now()) @map(name: "created_at")
   updatedAt     DateTime  @default(now()) @map(name: "updated_at")
   cryptos       Crypto[]
+  favCryptos    FavCrypto[]
 
   @@map(name: "users")
 }
@@ -70,10 +71,20 @@ model Crypto {
   id      Int      @id @default(autoincrement())
   addedAt DateTime @default(now())
   name    String
-  amount  Int
+  amount  Float
   owner   User     @relation(references: [id], fields: [userId])
 
 
   @@map(name: "cryptos")
+  userId Int
+}
+
+model FavCrypto {
+  id      Int      @id @default(autoincrement())
+  name    String
+  owner   User     @relation(references: [id], fields: [userId])
+
+
+  @@map(name: "favCryptos")
   userId Int
 }
